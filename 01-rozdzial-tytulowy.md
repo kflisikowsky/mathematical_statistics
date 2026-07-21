@@ -7,7 +7,7 @@ description: A reusable chapter template for the rest of the book.
 
 # Title Chapter
 
-This chapter is a reusable template for future sections of the book. It keeps the structure clear and easy to extend.
+This chapter introduces the structure and pacing used throughout the book.
 
 <div class="hero-panel hero-panel-compact">
 	<p class="eyebrow">Structure</p>

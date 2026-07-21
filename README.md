@@ -10,8 +10,8 @@ description: A modern book on mathematical statistics, with an emphasis on intui
 Welcome to Mathematical Statistics in Python. This book is a practical, readable introduction to mathematical statistics, with a clear emphasis on intuition, theory, and computation.
 
 <div class="hero-panel">
-	<p class="eyebrow">Core idea</p>
-	<p>The material focuses on building statistical intuition, then turning that intuition into rigorous methods and clear calculations.</p>
+	<p class="eyebrow">Overview</p>
+	<p>The book develops statistical intuition first, then connects that intuition to rigorous methods and clear calculations.</p>
 </div>
 
 <p align="center">
@@ -30,7 +30,7 @@ These are the key learning outcomes for this material:
 6. Connect theory with computation instead of treating them as separate topics.
 
 ```{tip}
-The title chapter is meant to be copied and adapted for each future chapter in the book.
+The opening chapter sets the tone, scope, and structure for the rest of the book.
 ```
 
 ## Chapter Map
