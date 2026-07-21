@@ -7,10 +7,10 @@ description: A reusable chapter template for the rest of the book.
 
 # Title Chapter
 
-This chapter is a reusable template you can copy when creating additional sections of the book. It keeps the structure clear, course-like, and easy to extend.
+This chapter is a reusable template for future sections of the book. It keeps the structure clear and easy to extend.
 
 <div class="hero-panel hero-panel-compact">
-	<p class="eyebrow">Template chapter</p>
+	<p class="eyebrow">Structure</p>
 	<p>Use this page as a blueprint for the tone, structure, and pacing of each future chapter.</p>
 </div>
 
