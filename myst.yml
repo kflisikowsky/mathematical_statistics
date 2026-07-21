@@ -15,6 +15,13 @@ project:
     
 site:
   template: book-theme
+  actions:
+    - title: PDF
+      url: https://lexicodoportugues.com/projetos/pee/referencias/Bruce,%20Bruce%20-%202017%20-%20Practical%20Statistics%20for%20Data%20Scientists.pdf
+    - title: Feedback?
+      url: https://forms.gle/VioYdwVhDAwkXk48A
+    - title: Course Website
+      url: https://enauczanie.pg.edu.pl/2025/
   options:
     logo: docs/logo.svg
     favicon: docs/favicon.svg
