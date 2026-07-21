@@ -48,12 +48,6 @@ The title chapter is meant to be copied and adapted for each future chapter in t
 | Inference | estimation, confidence intervals, hypothesis tests |
 | Practice | simulations, visualizations, Python computation |
 
-## Additional Links
-
-- [Title Chapter](01-rozdzial-tytulowy.md)
-
-> This book is intentionally structured like a course text: a strong front page, clear outcomes, and reusable chapter templates.
-
 ---
 
 <p align="right"><strong>21 July 2026</strong><br>dr inż. Karol Flisikowski, prof. PG</p>
