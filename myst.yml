@@ -21,7 +21,7 @@ site:
     - title: Feedback?
       url: https://forms.gle/VioYdwVhDAwkXk48A
     - title: Course Website
-      url: https://enauczanie.pg.edu.pl/2025/
+      url: https://enauczanie.pg.edu.pl/2025/course/view.php?id=5306
   options:
     logo: docs/logo.svg
     favicon: docs/favicon.svg
