@@ -1,31 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
 :root {
-  --myst-header-background: #ffffff;
+  --myst-header-background: #f8fafc;
   --myst-header-text: #0f172a;
   --myst-header-link: #1d4ed8;
-  --myst-page-background: #ffffff;
+  --myst-page-background: #f8fafc;
   --myst-content-background: #ffffff;
   --myst-content-foreground: #111827;
-  --myst-accent: #1d4ed8;
+  --myst-accent: #2563eb;
   --myst-accent-strong: #1e40af;
-  --myst-accent-soft: #e0ecff;
-  --myst-border: #e5e7eb;
+  --myst-accent-soft: #e0f2fe;
+  --myst-border: #dbe3ee;
   --myst-shadow: none;
   --myst-radius: 0;
 }
 
+html,
 body {
-  background: #ffffff;
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 36%, #f8fafc 100%);
   color: var(--myst-content-foreground);
+  font-feature-settings: "kern", "liga", "tnum";
+}
+
+html.dark body {
+  background: linear-gradient(180deg, #0b1120 0%, #111827 46%, #0f172a 100%);
+  color: #e5eefb;
 }
 
 header {
   border-bottom: 1px solid var(--myst-border);
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(8px);
+  background: rgba(248, 250, 252, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+html.dark header {
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom-color: #243049;
 }
 
 article {
   background: var(--myst-content-background);
+  color: #0f172a;
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -34,7 +53,14 @@ article {
   margin: 0 auto;
 }
 
+html.dark article {
+  background: rgba(15, 23, 42, 0.82);
+  color: #e5eefb;
+}
+
 article h1 {
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  color: #0f172a;
   letter-spacing: -0.025em;
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 2.8rem);
@@ -42,8 +68,26 @@ article h1 {
 
 article h2,
 article h3 {
-  color: #0f172a;
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  color: #123a63;
   letter-spacing: -0.01em;
+}
+
+html.dark article h2,
+html.dark article h3 {
+  color: #f8fbff;
+}
+
+html.dark article h1 {
+  color: #f8fbff;
+}
+
+article a {
+  color: #1d4ed8;
+}
+
+html.dark article a {
+  color: #93c5fd;
 }
 
 article p,
@@ -54,15 +98,29 @@ article th {
   line-height: 1.7;
 }
 
+article table,
+article p,
+article li,
+article blockquote,
+article .footnote,
+article .citation {
+  font-variant-numeric: tabular-nums;
+}
+
 article img {
   border-radius: 0;
 }
 
 blockquote {
   border-left: 4px solid var(--myst-accent);
-  background: #f8fbff;
+  background: #f0f7ff;
   border-radius: 0;
   padding: 0.9rem 1.1rem;
+}
+
+html.dark blockquote {
+  background: #111d33;
+  border-left-color: #60a5fa;
 }
 
 table {
@@ -76,25 +134,47 @@ td {
 }
 
 thead th {
-  background: #f8fafc;
+  background: #eef4fb;
   color: #111827;
 }
 
+html.dark thead th {
+  background: #1d2a44;
+  color: #f8fbff;
+}
+
 tbody tr:nth-child(even) {
-  background: #fafafa;
+  background: #f7fafc;
+}
+
+html.dark tbody tr:nth-child(even) {
+  background: #0f1b2e;
 }
 
 code:not(pre code) {
-  background: #eef4ff;
-  color: #1e3a8a;
+  background: #e8f1ff;
+  color: #0f4c81;
   border-radius: 4px;
   padding: 0.12rem 0.3rem;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+  font-size: 0.94em;
+}
+
+html.dark code:not(pre code) {
+  background: #15233a;
+  color: #c6e2ff;
 }
 
 pre {
   border-radius: 0;
   border: 1px solid var(--myst-border);
   box-shadow: none;
+  font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+}
+
+html.dark pre {
+  border-color: #243049;
+  background: #0b1526;
 }
 
 nav[aria-label="Document Outline"] {
@@ -104,8 +184,17 @@ nav[aria-label="Document Outline"] {
   box-shadow: none;
 }
 
+html.dark nav[aria-label="Document Outline"] {
+  border-color: #243049;
+  background: rgba(15, 23, 42, 0.9);
+}
+
 nav[aria-label="Document Outline"] a {
   color: #1d4ed8;
+}
+
+html.dark nav[aria-label="Document Outline"] a {
+  color: #93c5fd;
 }
 
 nav[aria-label="Document Outline"] li::marker {
@@ -126,6 +215,14 @@ article .note {
   border-bottom: 1px solid var(--myst-border);
   padding: 0.9rem 0;
   margin: 1.25rem 0 1.5rem;
+  background: linear-gradient(180deg, rgba(224, 242, 254, 0.65), rgba(255, 255, 255, 0));
+}
+
+html.dark .hero-panel,
+html.dark .hero-panel-compact {
+  border-top-color: #60a5fa;
+  border-bottom-color: #243049;
+  background: linear-gradient(180deg, rgba(15, 29, 51, 0.95), rgba(15, 23, 42, 0.55));
 }
 
 .hero-panel .eyebrow,
@@ -136,6 +233,26 @@ article .note {
   color: var(--myst-accent-strong);
   font-weight: 700;
   margin-bottom: 0.45rem;
+}
+
+html.dark .hero-panel .eyebrow,
+html.dark .hero-panel-compact .eyebrow {
+  color: #93c5fd;
+}
+
+html.dark .hero-panel p,
+html.dark .hero-panel-compact p {
+  color: #e5e7eb;
+}
+
+.hero-panel p,
+.hero-panel-compact p,
+article .footnote,
+article .citation,
+article .alert,
+article .tip,
+article .note {
+  font-family: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
 }
 
 .hero-panel p,
