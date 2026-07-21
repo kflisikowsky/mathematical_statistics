@@ -18,3 +18,4 @@ site:
   options:
     logo: docs/logo.svg
     favicon: docs/favicon.svg
+    style: docs/theme.css

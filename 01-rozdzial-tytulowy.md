@@ -9,6 +9,11 @@ description: A reusable chapter template for the rest of the book.
 
 This chapter is a reusable template you can copy when creating additional sections of the book. It keeps the structure clear, course-like, and easy to extend.
 
+<div class="hero-panel hero-panel-compact">
+	<p class="eyebrow">Template chapter</p>
+	<p>Use this page as a blueprint for the tone, structure, and pacing of each future chapter.</p>
+</div>
+
 ## Chapter outline
 
 <h2>Chapter Outline</h2>
@@ -50,3 +55,7 @@ print(value)
 ### Takeaways
 
 Summarize in a few sentences what this chapter contributes to the rest of the book.
+
+---
+
+<p align="right"><strong>21 July 2026</strong><br>dr inż. Karol Flisikowski, prof. PG</p>

@@ -7,9 +7,12 @@ description: A modern book on mathematical statistics, with an emphasis on intui
 
 # Mathematical Statistics in Python
 
-By Karol
+Welcome to Mathematical Statistics in Python. This book is designed as a practical, readable introduction to mathematical statistics, with a clear emphasis on intuition, theory, and computation.
 
-Welcome to Mathematical Statistics in Python. This book is designed as a practical, readable introduction to mathematical statistics, with a clear emphasis on intuition, theory, and computation. You can use it directly in the browser or treat it as a starting point for a longer course-style book.
+<div class="hero-panel">
+	<p class="eyebrow">Course-style textbook</p>
+	<p>You can use this site directly in the browser or treat it as a polished starting point for a longer course-style book.</p>
+</div>
 
 <p align="center">
 	<img src="docs/logo.svg" width="180" alt="Mathematical Statistics in Python logo">
@@ -40,6 +43,13 @@ If you are just browsing, you can simply read through the pages in this site. If
 The title chapter is meant to be copied and adapted for each future chapter in the book.
 ```
 
+## Chapter Map
+
+1. Foundations and notation.
+2. Probability models and distributions.
+3. Estimation and uncertainty.
+4. Hypothesis tests and interpretation.
+
 ## What you will find inside
 
 | Area | Covers |
@@ -55,3 +65,7 @@ The title chapter is meant to be copied and adapted for each future chapter in t
 - [Jupyter Book Documentation](https://jupyterbook.org/)
 
 > This site is intentionally structured like a course book: a strong front page, clear outcomes, and reusable chapter templates.
+
+---
+
+<p align="right"><strong>21 July 2026</strong><br>dr inż. Karol Flisikowski, prof. PG</p>
