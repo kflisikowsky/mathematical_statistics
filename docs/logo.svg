@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Mathematical Statistics in Python logo</title>
+  <desc id="desc">A compact circular logo with a line chart inside.</desc>
+  <defs>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7dd3fc" />
+      <stop offset="50%" stop-color="#a7f3d0" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+    <linearGradient id="inner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1726" />
+      <stop offset="100%" stop-color="#12314a" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#inner)" />
+  <circle cx="128" cy="128" r="96" fill="none" stroke="url(#ring)" stroke-width="12" />
+  <path d="M62 158 L96 128 L124 140 L162 88 L194 102" fill="none" stroke="#e5f2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="96" cy="128" r="8" fill="#7dd3fc" />
+  <circle cx="124" cy="140" r="8" fill="#a7f3d0" />
+  <circle cx="162" cy="88" r="8" fill="#fde68a" />
+  <circle cx="194" cy="102" r="8" fill="#fca5a5" />
+</svg>
