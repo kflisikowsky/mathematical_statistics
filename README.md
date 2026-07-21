@@ -29,10 +29,6 @@ These are the key learning outcomes for this material:
 5. Write clear, reproducible notebooks and explanations.
 6. Connect theory with computation instead of treating them as separate topics.
 
-```{tip}
-The opening chapter sets the tone, scope, and structure for the rest of the book.
-```
-
 ## Chapter Map
 
 1. Foundations and notation.
