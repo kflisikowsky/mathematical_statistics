@@ -63,4 +63,4 @@ If anything in the book is difficult to read or navigate, please report it so it
 
 ---
 
-<p align="right"><strong>21 July 2026</strong><br>dr inż. Karol Flisikowski, prof. PG</p>
+<p align="right"><strong>30 September 2026</strong><br>dr inż. Karol Flisikowski, prof. PG</p>
