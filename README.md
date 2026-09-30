@@ -32,10 +32,14 @@ The opening chapters are designed to build a foundation for the rest of the book
 
 ## Chapter Map
 
-1. Foundations and notation.
-2. Probability models and distributions.
-3. Estimation and uncertainty.
-4. Hypothesis tests and interpretation.
+1. [Course organisation and getting started](01_introduction.md): assessment, preparation, data in Python, study designs, sampling and experiments.
+
+Planned topics for the following chapters:
+
+- Foundations and notation.
+- Probability models and distributions.
+- Estimation and uncertainty.
+- Hypothesis tests and interpretation.
 
 ## Why This Book?
 
