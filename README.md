@@ -34,6 +34,8 @@ The opening chapters are designed to build a foundation for the rest of the book
 
 1. [Course organisation and getting started](01_introduction.md): assessment, preparation, data in Python, study designs, sampling and experiments.
 
+2. [Can we trust this study?](02_statistical_thinking.md): sample evidence, sampling variability, bias and defensible conclusions, connecting the first workbook, lab and seminar.
+
 Planned topics for the following chapters:
 
 - Foundations and notation.
