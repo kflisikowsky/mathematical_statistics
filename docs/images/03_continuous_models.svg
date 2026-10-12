@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Shapes of four continuous probability densities</title>
+  <desc id="desc">Four density plots show a uniform distribution, a standard normal distribution, an exponential distribution, and a log-normal distribution. Each has its own horizontal and vertical scale.</desc>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#123a63}
+    .title{font-size:22px;font-weight:700}
+    .subtitle{font-size:15px;font-weight:700}
+    .tick{font-size:11px;fill:#53677a}
+    .grid{stroke:#dce6f1;stroke-width:1}
+    .axis{stroke:#7890a5;stroke-width:1.1}
+    .curve{fill:none;stroke:#2563eb;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+  </style>
+  <rect width="960" height="540" fill="#fff"/>
+  <text class="title" x="480" y="34" text-anchor="middle">Different processes produce different density shapes</text>
+  <text class="tick" x="480" y="57" text-anchor="middle">Density height is not probability; probability is area over an interval. Scales differ by panel.</text>
+  <g>
+    <text class="subtitle" x="255" y="94" text-anchor="middle">Uniform(0, 1)</text>
+    <line class="grid" x1="85" y1="125" x2="425" y2="125"/>
+    <line class="axis" x1="85" y1="250" x2="425" y2="250"/>
+    <line class="axis" x1="85" y1="125" x2="85" y2="250"/>
+    <path d="M85 250 L85 125 L425 125 L425 250" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linejoin="round"/>
+    <text class="tick" x="85" y="269" text-anchor="middle">0</text>
+    <text class="tick" x="255" y="269" text-anchor="middle">0.5</text>
+    <text class="tick" x="425" y="269" text-anchor="middle">1</text>
+    <text class="tick" x="73" y="130" text-anchor="end">1</text>
+    <text class="tick" x="255" y="288" text-anchor="middle">x</text>
+  </g>
+  <g>
+    <text class="subtitle" x="705" y="94" text-anchor="middle">Normal(0, 1)</text>
+    <line class="grid" x1="535" y1="125" x2="875" y2="125"/>
+    <line class="axis" x1="535" y1="250" x2="875" y2="250"/>
+    <line class="axis" x1="535" y1="125" x2="535" y2="250"/>
+    <path class="curve" d="M535 249 C551 248 567 244 583 231 C599 214 615 183 631 153 C647 131 663 125 679 125 C695 125 711 131 727 153 C743 183 759 214 775 231 C791 244 807 248 823 249 C840 250 858 250 875 250"/>
+    <text class="tick" x="535" y="269" text-anchor="middle">−3</text>
+    <text class="tick" x="592" y="269" text-anchor="middle">−2</text>
+    <text class="tick" x="648" y="269" text-anchor="middle">−1</text>
+    <text class="tick" x="705" y="269" text-anchor="middle">0</text>
+    <text class="tick" x="762" y="269" text-anchor="middle">1</text>
+    <text class="tick" x="818" y="269" text-anchor="middle">2</text>
+    <text class="tick" x="875" y="269" text-anchor="middle">3</text>
+    <text class="tick" x="705" y="288" text-anchor="middle">x</text>
+  </g>
+  <g>
+    <text class="subtitle" x="255" y="331" text-anchor="middle">Exponential(λ = 1)</text>
+    <line class="grid" x1="85" y1="360" x2="425" y2="360"/>
+    <line class="axis" x1="85" y1="475" x2="425" y2="475"/>
+    <line class="axis" x1="85" y1="360" x2="85" y2="475"/>
+    <path class="curve" d="M85 360 C103 382 120 398 136 411 C153 424 170 435 187 443 C204 451 221 457 238 462 C255 466 272 469 289 471 C306 473 323 474 340 474 C368 475 398 475 425 475"/>
+    <text class="tick" x="85" y="494" text-anchor="middle">0</text>
+    <text class="tick" x="170" y="494" text-anchor="middle">1</text>
+    <text class="tick" x="255" y="494" text-anchor="middle">2</text>
+    <text class="tick" x="340" y="494" text-anchor="middle">3</text>
+    <text class="tick" x="425" y="494" text-anchor="middle">4</text>
+    <text class="tick" x="73" y="365" text-anchor="end">1</text>
+    <text class="tick" x="255" y="513" text-anchor="middle">Waiting time, x</text>
+  </g>
+  <g>
+    <text class="subtitle" x="705" y="331" text-anchor="middle">Log-normal(μ = 0, σ = 0.5)</text>
+    <line class="grid" x1="535" y1="360" x2="875" y2="360"/>
+    <line class="axis" x1="535" y1="475" x2="875" y2="475"/>
+    <line class="axis" x1="535" y1="360" x2="535" y2="475"/>
+    <path class="curve" d="M535 475 C544 475 548 474 552 474 C560 474 565 445 569 412 C574 382 581 373 586 373 C595 373 598 360 603 360 C610 360 615 379 620 383 C635 391 648 416 663 431 C678 446 692 453 705 457 C735 466 765 470 790 472 C820 474 850 475 875 475"/>
+    <text class="tick" x="535" y="494" text-anchor="middle">0</text>
+    <text class="tick" x="620" y="494" text-anchor="middle">1</text>
+    <text class="tick" x="705" y="494" text-anchor="middle">2</text>
+    <text class="tick" x="790" y="494" text-anchor="middle">3</text>
+    <text class="tick" x="875" y="494" text-anchor="middle">4</text>
+    <text class="tick" x="705" y="513" text-anchor="middle">Positive measurement, x</text>
+  </g>
+</svg>

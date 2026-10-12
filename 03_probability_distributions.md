@@ -7,7 +7,7 @@ description: Empirical and theoretical distributions, discrete and continuous pr
 
 Suppose a help desk records the number of calls it receives each hour. A histogram describes the calls it has already observed, but it does not tell us directly how many calls to expect next hour or how uncertain that count is. A probability distribution gives us a mathematical model for the possible values of a random variable and the probabilities associated with them.
 
-This chapter moves from observed data to probability models, then checks whether a model is useful for the question at hand. It follows **Lecture 3: Empirical & Theoretical Probability Distributions** and connects its examples to the random-variable and discrete-distribution material in *Statistics II — Lecture 2*.
+This chapter moves from observed data to probability models, then checks whether a model is useful for the question at hand. It follows **Lecture 3: Empirical & Theoretical Probability Distributions**.
 
 By the end, you should be able to distinguish empirical and theoretical distributions, classify random variables as discrete or continuous, interpret probability functions and distribution parameters, select a plausible model from its assumptions, calculate and explain basic probabilities, and compare model implications with observed data.
 
@@ -27,6 +27,8 @@ A **theoretical distribution** assigns probabilities to the possible outcomes of
 | Main question | What did this sample look like? | What outcomes does the model make plausible? |
 
 A model is a simplification, not a claim that reality follows a formula perfectly. It is useful when its assumptions fit the process well enough to answer a clearly stated question.
+
+![Observed proportions from 120 simulated Binomial(10, 0.4) outcomes appear as bars; the model probabilities appear as dots. The differences illustrate how a finite empirical distribution can vary around its theoretical model.](docs/images/03_empirical_theoretical.svg)
 
 ## 3.2 Random variables and probability functions
 
@@ -161,9 +163,13 @@ $$
 
 If the population is very large relative to the sample, the change in composition may be negligible and a binomial approximation can sometimes be useful. The actual sampling scheme still determines which model is exact.
 
+![Probability mass functions for a binomial, Poisson, and hypergeometric model. Each panel uses its own parameters and vertical scale; the model name and parameter values are shown above it.](docs/images/03_discrete_models.svg)
+
 ## 3.4 Continuous probability distributions
 
 For continuous distributions, probability is area under a density curve. The total area over the variable's support is one, and the CDF accumulates area from the left. This interpretation underlies the uniform, normal, exponential, and log-normal models below.
+
+![Density curves for a uniform distribution on zero to one, a standard normal distribution, an exponential distribution with rate one, and a log-normal distribution with log-scale mean zero and standard deviation one half. Axes are scaled separately in each panel.](docs/images/03_continuous_models.svg)
 
 ### 3.4.1 Uniform distribution
 

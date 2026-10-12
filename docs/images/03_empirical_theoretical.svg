@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="410" viewBox="0 0 900 410" role="img" aria-labelledby="title desc">
+  <title id="title">Empirical and theoretical binomial distributions</title>
+  <desc id="desc">Bars show proportions in a simulated sample of 120 binomial outcomes. Dots show the corresponding Binomial 10, 0.4 probabilities.</desc>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#123a63}
+    .title{font-size:22px;font-weight:700}
+    .label{font-size:14px}
+    .tick{font-size:12px;fill:#53677a}
+    .grid{stroke:#dce6f1;stroke-width:1}
+    .axis{stroke:#7890a5;stroke-width:1.2}
+  </style>
+  <rect width="900" height="410" fill="#fff"/>
+  <text class="title" x="450" y="34" text-anchor="middle">A sample varies around its probability model</text>
+  <text class="label" x="450" y="58" text-anchor="middle">120 simulated outcomes · X ~ Binomial(n = 10, p = 0.4)</text>
+  <line class="grid" x1="110" y1="100" x2="820" y2="100"/>
+  <line class="grid" x1="110" y1="180" x2="820" y2="180"/>
+  <line class="grid" x1="110" y1="260" x2="820" y2="260"/>
+  <line class="axis" x1="110" y1="340" x2="820" y2="340"/>
+  <line class="axis" x1="110" y1="100" x2="110" y2="340"/>
+  <text class="tick" x="98" y="344" text-anchor="end">0%</text>
+  <text class="tick" x="98" y="264" text-anchor="end">10%</text>
+  <text class="tick" x="98" y="184" text-anchor="end">20%</text>
+  <text class="tick" x="98" y="104" text-anchor="end">30%</text>
+  <g fill="#9bb9d8">
+    <rect x="120" y="333" width="42" height="7" rx="3"/>
+    <rect x="184" y="287" width="42" height="53" rx="3"/>
+    <rect x="248" y="233" width="42" height="107" rx="3"/>
+    <rect x="312" y="166" width="42" height="174" rx="3"/>
+    <rect x="376" y="166" width="42" height="174" rx="3"/>
+    <rect x="440" y="193" width="42" height="147" rx="3"/>
+    <rect x="504" y="260" width="42" height="80" rx="3"/>
+    <rect x="568" y="300" width="42" height="40" rx="3"/>
+    <rect x="632" y="327" width="42" height="13" rx="3"/>
+    <rect x="696" y="333" width="42" height="7" rx="3"/>
+  </g>
+  <polyline points="141,335 205,308 269,243 333,168 397,139 461,179 525,251 589,306 653,331 717,339 781,340"
+    fill="none" stroke="#087f8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#087f8c" stroke="#fff" stroke-width="2">
+    <circle cx="141" cy="335" r="5"/><circle cx="205" cy="308" r="5"/>
+    <circle cx="269" cy="243" r="5"/><circle cx="333" cy="168" r="5"/>
+    <circle cx="397" cy="139" r="5"/><circle cx="461" cy="179" r="5"/>
+    <circle cx="525" cy="251" r="5"/><circle cx="589" cy="306" r="5"/>
+    <circle cx="653" cy="331" r="5"/><circle cx="717" cy="339" r="5"/>
+    <circle cx="781" cy="340" r="5"/>
+  </g>
+  <g class="tick" text-anchor="middle">
+    <text x="141" y="362">0</text><text x="269" y="362">2</text>
+    <text x="397" y="362">4</text><text x="525" y="362">6</text>
+    <text x="653" y="362">8</text><text x="781" y="362">10</text>
+  </g>
+  <text class="label" x="465" y="389" text-anchor="middle">Number of successes, k</text>
+  <rect x="285" y="72" width="14" height="14" rx="2" fill="#9bb9d8"/>
+  <text class="tick" x="307" y="84">Simulated sample proportion</text>
+  <circle cx="517" cy="79" r="5" fill="#087f8c"/>
+  <text class="tick" x="530" y="84">Theoretical probability</text>
+</svg>
