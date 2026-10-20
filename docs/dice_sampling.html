@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10182d">
+  <title>Dice &amp; Sampling | Interactive Statistics</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #10182d;
+      --card: #192541;
+      --card-soft: #202f50;
+      --ink: #f5f7ff;
+      --muted: #b3bfdc;
+      --line: #36466a;
+      --blue: #68a7ff;
+      --cyan: #45dfd0;
+      --pink: #ff78b7;
+      --gold: #ffd166;
+      --shadow: 0 18px 45px rgb(5 10 24 / 24%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page);
+      color: var(--ink);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(ellipse at 12% 0%, rgb(65 112 211 / 24%), transparent 36rem),
+        radial-gradient(ellipse at 100% 30%, rgb(255 120 183 / 10%), transparent 32rem),
+        var(--page);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(100% - 2rem, 980px);
+      margin: 0 auto;
+      padding: 2rem 0 3rem;
+      display: grid;
+      gap: 1.15rem;
+    }
+
+    h1, h2, p { margin-top: 0; }
+    h1 { margin-bottom: .35rem; font-size: clamp(1.8rem, 5vw, 2.65rem); line-height: 1.08; letter-spacing: -.04em; }
+    h2 { margin-bottom: .85rem; font-size: 1.12rem; letter-spacing: -.015em; }
+    p { margin-bottom: .5rem; }
+    .hero { padding: .35rem .15rem .5rem; }
+    .eyebrow { margin-bottom: .5rem; color: var(--cyan); font-size: .76rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .lede, .muted { color: var(--muted); }
+    .lede { max-width: 70ch; margin: 0; font-size: 1.02rem; }
+    .card { padding: clamp(1rem, 3vw, 1.45rem); border: 1px solid var(--line); border-radius: 1.15rem; background: linear-gradient(145deg, rgb(32 47 80 / 70%), rgb(25 37 65 / 96%)); box-shadow: var(--shadow); }
+    .card-head { display: flex; align-items: start; gap: .8rem; }
+    .step { display: grid; flex: 0 0 2rem; width: 2rem; height: 2rem; place-items: center; border-radius: .7rem; background: rgb(104 167 255 / 16%); color: var(--blue); font-weight: 800; }
+    .card-head h2 { padding-top: .2rem; }
+    .row { display: flex; align-items: center; gap: .65rem; flex-wrap: wrap; }
+    .row + .row { margin-top: .8rem; }
+    .dice { min-width: 5.5rem; font-size: 2.5rem; line-height: 1; text-align: center; }
+    button, select {
+      min-height: 2.65rem;
+      padding: .58rem .85rem;
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+      background: #17233e;
+      color: var(--ink);
+      font: inherit;
+    }
+    button { cursor: pointer; transition: transform .14s ease, border-color .14s ease, background .14s ease; }
+    button:hover { transform: translateY(-1px); border-color: var(--blue); background: #223457; }
+    button:focus-visible, select:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    button.primary { border-color: transparent; background: linear-gradient(105deg, #477ff0, #7364ed); font-weight: 750; }
+    button.primary:hover { background: linear-gradient(105deg, #6396ff, #8b7aff); }
+    button.sum-button { min-width: 3.35rem; padding: .4rem .45rem; font-size: 1.05rem; font-weight: 750; }
+    button.sum-button small { display: block; color: var(--muted); font-size: .72rem; font-weight: 500; }
+    label { color: var(--muted); font-size: .92rem; }
+    .dice-group { display: flex; align-items: center; gap: .45rem; }
+    .dice-group select { min-width: 4.2rem; font-size: 1.05rem; }
+    .chart { min-height: 180px; }
+    svg { display: block; width: 100%; height: auto; overflow: visible; }
+    svg text { font-family: inherit; }
+    .stats { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .65rem; }
+    .stat { padding: .4rem .7rem; border: 1px solid var(--line); border-radius: 999px; background: rgb(16 24 45 / 45%); font-size: .88rem; font-variant-numeric: tabular-nums; }
+    .note { min-height: 1.5rem; margin-top: .6rem; color: var(--muted); font-size: .86rem; }
+    .callout { padding: .75rem .9rem; border-left: 3px solid var(--gold); border-radius: .25rem .75rem .75rem .25rem; background: rgb(255 209 102 / 8%); color: #f7e6b6; font-size: .9rem; }
+    .footer { color: var(--muted); font-size: .8rem; text-align: center; }
+
+    @media (max-width: 600px) {
+      main { width: min(100% - 1rem, 980px); padding-top: 1rem; gap: .75rem; }
+      .card { border-radius: .9rem; }
+      .dice { min-width: 4rem; font-size: 2rem; }
+      button.sum-button { min-width: 2.65rem; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">Mathematical statistics · interactive explorer</p>
+      <h1>🎲 Dice &amp; sampling</h1>
+      <p class="lede">Watch a theoretical distribution emerge from rolls, then see how averaging repeated rolls changes the spread and shape.</p>
+    </header>
+
+    <section class="card" aria-labelledby="projector-title">
+      <div class="card-head"><span class="step">1</span><div><h2 id="projector-title">Build a class sample</h2><p class="muted">Click a sum as your group calls it out. These counts live only in this browser.</p></div></div>
+      <div class="row" id="sum-buttons" aria-label="Record a called-out sum"></div>
+      <div class="row">
+        <button id="undo">Undo last entry</button>
+        <button id="clear">Clear this browser's data</button>
+        <span class="muted" id="entry-count" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="roll-title">
+      <div class="card-head"><span class="step">2</span><div><h2 id="roll-title">Roll two dice</h2><p class="muted">Roll virtually or enter the faces of physical dice.</p></div></div>
+      <div class="row">
+        <span class="dice" id="dice-display" aria-label="Two dice">⚀ ⚀</span>
+        <button class="primary" id="roll">Roll for me</button>
+        <span class="muted">or enter a roll:</span>
+        <div class="dice-group"><label for="die-a">Die one</label><select id="die-a" aria-label="First die"></select></div>
+        <div class="dice-group"><label for="die-b">Die two</label><select id="die-b" aria-label="Second die"></select></div>
+        <button id="add-roll">Add roll</button>
+      </div>
+      <p class="note" id="roll-note" aria-live="polite"></p>
+    </section>
+
+    <section class="card" aria-labelledby="distribution-title">
+      <div class="card-head"><span class="step">3</span><div><h2 id="distribution-title">Observed sums and the exact model</h2><p class="muted">Bars show this browser's empirical proportions; the bright curve shows the exact probabilities.</p></div></div>
+      <div class="chart" id="sum-chart"></div>
+      <div class="stats"><span class="stat" id="total-stat"></span><span class="stat" id="mean-stat"></span><span class="stat" id="variance-stat"></span></div>
+      <p class="note">The possible sums are 2–12. A fair pair of dice has theoretical mean 7 and variance 35/6 ≈ 5.83.</p>
+    </section>
+
+    <section class="card" aria-labelledby="means-title">
+      <div class="card-head"><span class="step">4</span><div><h2 id="means-title">Average repeated rolls</h2><p class="muted">Simulate sample means and compare their spread with the normal approximation.</p></div></div>
+      <div class="row">
+        <label for="sample-size">Dice per sample, n =</label>
+        <select id="sample-size">
+          <option value="1">1</option><option value="2">2</option><option value="5" selected>5</option>
+          <option value="10">10</option><option value="30">30</option><option value="100">100</option>
+        </select>
+        <button class="primary" id="simulate">Simulate 3,000 sample means</button>
+      </div>
+      <div class="chart" id="mean-chart"></div>
+      <p class="callout" id="simulation-stats" aria-live="polite">For n dice, the theoretical mean is 3.5 and the standard error is √(35/(12n)).</p>
+    </section>
+    <p class="footer">No data are uploaded or shared. Reload this page to reset the demonstration.</p>
+  </main>
+
+  <script>
+    "use strict";
+
+    const faceGlyphs = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+    const theoretical = [1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1].map(value => value / 36);
+    const counts = Array(11).fill(0);
+    const history = [];
+    const tallyCounts = Array(11).fill(0);
+    const sumButtons = [];
+    const byId = id => document.getElementById(id);
+    const colors = { bar: "#68a7ff", theory: "#ffd166", ink: "#f5f7ff", muted: "#b3bfdc", grid: "#36466a", accent: "#45dfd0", page: "#192541" };
+
+    for (const id of ["die-a", "die-b"]) {
+      const select = byId(id);
+      for (let value = 1; value <= 6; value += 1) {
+        select.add(new Option(String(value), String(value)));
+      }
+    }
+
+    for (let sum = 2; sum <= 12; sum += 1) {
+      const button = document.createElement("button");
+      button.className = "sum-button";
+      button.type = "button";
+      button.setAttribute("aria-label", `Record a sum of ${sum}`);
+      button.addEventListener("click", () => record(sum, "tally"));
+      byId("sum-buttons").append(button);
+      sumButtons.push(button);
+    }
+
+    function record(sum, source) {
+      const index = sum - 2;
+      counts[index] += 1;
+      if (source === "tally") tallyCounts[index] += 1;
+      history.push({ index, source });
+      renderDistribution();
+    }
+
+    function renderDistribution() {
+      const total = counts.reduce((sum, count) => sum + count, 0);
+      const observed = counts.map(count => total ? count / total : 0);
+      const width = 720;
+      const height = 285;
+      const padding = { left: 42, right: 16, top: 20, bottom: 38 };
+      const plotWidth = width - padding.left - padding.right;
+      const plotHeight = height - padding.top - padding.bottom;
+      const maxValue = Math.max(0.2, ...observed, ...theoretical) * 1.12;
+      const xAt = index => padding.left + (index + 0.5) * plotWidth / 11;
+      const yAt = value => padding.top + plotHeight - value / maxValue * plotHeight;
+      let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Observed proportions of sums from two dice compared with exact probabilities">`;
+      for (let tick = 0; tick <= 4; tick += 1) {
+        const value = maxValue * tick / 4;
+        const y = yAt(value);
+        svg += `<line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" stroke="${colors.grid}" stroke-width="1"/>`;
+        svg += `<text x="${padding.left - 8}" y="${y + 4}" text-anchor="end" fill="${colors.muted}" font-size="12">${value.toFixed(2)}</text>`;
+      }
+      observed.forEach((value, index) => {
+        const barWidth = plotWidth / 11 * 0.62;
+        const barHeight = padding.top + plotHeight - yAt(value);
+        svg += `<rect x="${xAt(index) - barWidth / 2}" y="${yAt(value)}" width="${barWidth}" height="${barHeight}" rx="5" fill="${colors.bar}" opacity="0.84"/>`;
+        svg += `<text x="${xAt(index)}" y="${height - 12}" text-anchor="middle" fill="${colors.muted}" font-size="13">${index + 2}</text>`;
+      });
+      const points = theoretical.map((value, index) => `${xAt(index)},${yAt(value)}`).join(" ");
+      svg += `<polyline points="${points}" fill="none" stroke="${colors.theory}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+      theoretical.forEach((value, index) => {
+        svg += `<circle cx="${xAt(index)}" cy="${yAt(value)}" r="4.5" fill="${colors.theory}" stroke="${colors.page}" stroke-width="2"/>`;
+      });
+      svg += "</svg>";
+      byId("sum-chart").innerHTML = svg;
+
+      sumButtons.forEach((button, index) => {
+        button.innerHTML = `${index + 2}<small>${tallyCounts[index]}</small>`;
+      });
+      byId("total-stat").textContent = `Observed rolls: ${total}`;
+      if (total) {
+        const mean = counts.reduce((sum, count, index) => sum + count * (index + 2), 0) / total;
+        const variance = counts.reduce((sum, count, index) => sum + count * (index + 2 - mean) ** 2, 0) / total;
+        byId("mean-stat").textContent = `Observed mean: ${mean.toFixed(3)} (theory 7)`;
+        byId("variance-stat").textContent = `Observed variance: ${variance.toFixed(3)} (theory 5.83)`;
+      } else {
+        byId("mean-stat").textContent = "Observed mean: —";
+        byId("variance-stat").textContent = "Observed variance: —";
+      }
+      byId("entry-count").textContent = `${total} total observation${total === 1 ? "" : "s"}`;
+    }
+
+    function rollDice() {
+      return [1 + Math.floor(Math.random() * 6), 1 + Math.floor(Math.random() * 6)];
+    }
+
+    function addRoll(first, second) {
+      byId("dice-display").textContent = `${faceGlyphs[first - 1]} ${faceGlyphs[second - 1]}`;
+      byId("roll-note").textContent = `Added ${first} + ${second} = ${first + second}.`;
+      record(first + second, "roll");
+    }
+
+    byId("roll").addEventListener("click", () => addRoll(...rollDice()));
+    byId("add-roll").addEventListener("click", () => addRoll(Number(byId("die-a").value), Number(byId("die-b").value)));
+    byId("undo").addEventListener("click", () => {
+      const last = history.pop();
+      if (!last) return;
+      counts[last.index] -= 1;
+      if (last.source === "tally") tallyCounts[last.index] -= 1;
+      renderDistribution();
+      byId("roll-note").textContent = "Removed the most recent observation.";
+    });
+    byId("clear").addEventListener("click", () => {
+      counts.fill(0);
+      tallyCounts.fill(0);
+      history.length = 0;
+      byId("roll-note").textContent = "This browser's demonstration data have been cleared.";
+      renderDistribution();
+    });
+
+    function normalDensity(value, mean, standardDeviation) {
+      const z = (value - mean) / standardDeviation;
+      return Math.exp(-0.5 * z * z) / (standardDeviation * Math.sqrt(2 * Math.PI));
+    }
+
+    function simulateMeans(sampleSize) {
+      const simulations = 3000;
+      const means = Array(simulations);
+      for (let i = 0; i < simulations; i += 1) {
+        let sum = 0;
+        for (let j = 0; j < sampleSize; j += 1) sum += 1 + Math.floor(Math.random() * 6);
+        means[i] = sum / sampleSize;
+      }
+
+      const bins = 48;
+      const lower = 1;
+      const upper = 6;
+      const binWidth = (upper - lower) / bins;
+      const frequencies = Array(bins).fill(0);
+      means.forEach(value => {
+        const index = Math.min(bins - 1, Math.floor((value - lower) / binWidth));
+        frequencies[index] += 1;
+      });
+      const densities = frequencies.map(count => count / (simulations * binWidth));
+      const standardError = Math.sqrt(35 / (12 * sampleSize));
+      const curve = Array.from({ length: 201 }, (_, index) => {
+        const x = lower + (upper - lower) * index / 200;
+        return { x, y: normalDensity(x, 3.5, standardError) };
+      });
+      const maxValue = Math.max(...densities, ...curve.map(point => point.y)) * 1.12;
+      const width = 720;
+      const height = 270;
+      const padding = { left: 42, right: 16, top: 18, bottom: 38 };
+      const plotWidth = width - padding.left - padding.right;
+      const plotHeight = height - padding.top - padding.bottom;
+      const xAt = value => padding.left + (value - lower) / (upper - lower) * plotWidth;
+      const yAt = value => padding.top + plotHeight - value / maxValue * plotHeight;
+      let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Histogram of 3000 simulated sample means for sample size ${sampleSize}, with normal curve">`;
+      for (let tick = 0; tick <= 4; tick += 1) {
+        const value = maxValue * tick / 4;
+        const y = yAt(value);
+        svg += `<line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}" stroke="${colors.grid}" stroke-width="1"/>`;
+      }
+      densities.forEach((density, index) => {
+        const x = padding.left + index * plotWidth / bins;
+        const barWidth = plotWidth / bins + 0.35;
+        const barHeight = padding.top + plotHeight - yAt(density);
+        svg += `<rect x="${x}" y="${yAt(density)}" width="${barWidth}" height="${barHeight}" fill="${colors.accent}" opacity="0.66"/>`;
+      });
+      const points = curve.map(point => `${xAt(point.x)},${yAt(point.y)}`).join(" ");
+      svg += `<polyline points="${points}" fill="none" stroke="${colors.pink}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`;
+      for (let value = 1; value <= 6; value += 1) {
+        svg += `<text x="${xAt(value)}" y="${height - 12}" text-anchor="middle" fill="${colors.muted}" font-size="13">${value}</text>`;
+      }
+      svg += "</svg>";
+      byId("mean-chart").innerHTML = svg;
+
+      const sampleMean = means.reduce((sum, value) => sum + value, 0) / simulations;
+      const sampleVariance = means.reduce((sum, value) => sum + (value - sampleMean) ** 2, 0) / simulations;
+      byId("simulation-stats").textContent =
+        `n = ${sampleSize} · 3,000 simulated means · observed mean ${sampleMean.toFixed(3)} (theory 3.5) · ` +
+        `observed SE ${Math.sqrt(sampleVariance).toFixed(3)} · theoretical SE ${standardError.toFixed(3)}. ` +
+        "The pink curve is the normal approximation.";
+    }
+
+    byId("simulate").addEventListener("click", () => simulateMeans(Number(byId("sample-size").value)));
+    byId("sample-size").addEventListener("change", () => simulateMeans(Number(byId("sample-size").value)));
+    renderDistribution();
+    simulateMeans(Number(byId("sample-size").value));
+  </script>
+</body>
+</html>

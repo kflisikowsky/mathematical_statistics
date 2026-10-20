@@ -19,6 +19,9 @@ project:
     - file: 03_probability_distributions.md
       children:
         - file: 03_1_applied_probability.md
+    - file: 04_sampling_lln_clt.md
+      children:
+        - file: 04_1_dice_sampling.md
 
 site:
   template: book-theme

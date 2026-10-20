@@ -38,6 +38,8 @@ The opening chapters are designed to build a foundation for the rest of the book
 
 3. [Probability distributions](03_probability_distributions.md): empirical and theoretical distributions, discrete and continuous models, model checking, and applied probability calculations.
 
+4. [Sampling, the law of large numbers, and the central limit theorem](04_sampling_lln_clt.md): sampling distributions, the behaviour of averages and proportions, normal approximations, and the $t$, $\chi^2$, and $F$ distributions.
+
 Planned topics for the following chapters:
 
 - Estimation and uncertainty.
