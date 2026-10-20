@@ -26,6 +26,10 @@ is a **statistic**: before sampling it is random, and after observing the sample
 
 The probability distribution of a statistic over repeated samples of the same size is its **sampling distribution**. It is not the distribution of individual observations. For example, even when individual incomes are strongly right-skewed, the distribution of means from repeated samples of 100 incomes may be much more symmetric.
 
+![Ten samples of 25 values from a right-skewed population. The population mean is fixed at 1, but each sample produces a different sample mean, shown as a diamond.](docs/images/04_statistic_varies.png)
+
+*Each coloured row is one sample. The vertical line (the parameter) never moves; the diamonds (the statistic) do.*
+
 If the observations are independent and have the same mean and variance, linearity of expectation gives
 
 $$
@@ -53,6 +57,8 @@ The **standard error (SE)** is the standard deviation of the sampling distributi
 | Multiply $n$ by 100 | Divide the SE by 10 |
 
 Precision improves at the rate $1/\sqrt n$, not $1/n$. Making a sample four times larger halves the standard error, all else equal.
+
+![The curve sigma over square root of n for sigma equal to one, with marked points at n equal to 1, 4, 16, 64 and 256 showing the standard error halving each time the sample size is multiplied by four.](docs/images/04_se_shrinks.png)
 
 ## 4.2 The law of large numbers
 
@@ -101,7 +107,19 @@ E(X)=\frac{1+2+3+4+5+6}{6}=3.5,
 \operatorname{Var}(X)=\frac{35}{12}.
 $$
 
-The average of many independent rolls tends to 3.5 in probability. A short run can still have a noticeably different average. The interactive [dice-sampling app](04_1_dice_sampling.md) lets you compare the observed distribution of two-dice sums with its exact probabilities and simulate means of repeated rolls.
+The average of many independent rolls tends to 3.5 in probability. A short run can still have a noticeably different average.
+
+![Running means of eight independent sequences of fair die rolls. The paths start far apart and all settle near the true mean 3.5, shown with a shaded plus-or-minus 0.1 band.](docs/images/04_lln_paths.png)
+
+*Early on the paths disagree wildly; by a few hundred rolls they are squeezed around $\mu=3.5$. Note the logarithmic horizontal axis.*
+
+![Animated running mean of die rolls: the line wanders at first and then settles inside the shaded band around 3.5.](docs/images/04_lln_animation.gif)
+
+:::{tip} Try it yourself
+Watch the animation and note when the running mean enters the $\pm0.1$ band for good. Then compare with the eight paths above: is that moment the same for every path?
+:::
+
+The interactive [dice-sampling app](04_1_dice_sampling.md) lets you compare the observed distribution of two-dice sums with its exact probabilities and simulate means of repeated rolls.
 
 ## 4.3 The central limit theorem
 
@@ -120,6 +138,14 @@ $$
 $$
 
 The approximation concerns the **sampling distribution of the mean**, not necessarily the distribution of individual observations. The CLT does not say that the population becomes normal, and it does not make a biased or dependent sample representative.
+
+![Histograms of 20,000 sample means from a strongly right-skewed exponential population for n equal to 1, 2, 5 and 30, each with the normal curve predicted by the CLT. The histograms become symmetric and bell-shaped as n grows.](docs/images/04_clt_shapes.png)
+
+![Animation: the histogram of sample means from a skewed population changes from the skewed population shape at n equal to 1 to a narrow bell shape at n equal to 50, following the pink normal curve.](docs/images/04_clt_animation.gif)
+
+:::{tip} What to look for
+Each frame draws 15,000 sample means. Notice two things at once: the **shape** moves from skewed to symmetric, and the **width** shrinks like $1/\sqrt n$. Compare $n=4$ with $n=16$ in the standard-error plot above: how much narrower should the curve be?
+:::
 
 ### Proof sketch using characteristic functions
 
@@ -187,11 +213,21 @@ $$
 
 The range describes sampling variation, not all sources of polling error. Coverage problems, nonresponse, question wording, and dependence between respondents are not fixed merely by increasing $n$.
 
+![The normal sampling distribution of a poll result for p equal to 0.40 and n equal to 1000. The central 95 percent is shaded blue, the two tails orange, and 40 simulated poll results are shown as pink dots.](docs/images/04_poll_distribution.png)
+
+*Forty simulated polls from the same population: nearly all land in the blue region, and a couple fall in the tails, just as the model predicts.*
+
 For a proportion near 0 or 1, a sample size of 10 may not give a symmetric sampling distribution. The normal approximation improves as the expected numbers of successes and failures grow, but checking the approximation is more informative than applying a sample-size rule mechanically.
+
+![Exact sampling distribution of the sample proportion for p equal to 0.10 with n equal to 10, 50 and 300, each compared with the normal approximation. The shape is skewed for n equal to 10 and close to normal for n equal to 300.](docs/images/04_proportion_rule.png)
 
 ## 4.5 The $\chi^2$, $t$, and $F$ distributions
 
 Three important families of sampling distributions arise when normal data are used to reason about variability.
+
+![Densities of the chi-square distribution for 2, 5 and 10 degrees of freedom, the Student t distribution for 2, 5 and 30 degrees of freedom compared with the standard normal, and three F distributions.](docs/images/04_chi_t_f.png)
+
+*Left: $\chi^2$ is nonnegative and right-skewed. Centre: $t$ has heavier tails than $N(0,1)$ and approaches it as degrees of freedom grow. Right: $F$ is nonnegative and right-skewed, with its shape set by both degrees of freedom.*
 
 ### The chi-square distribution
 
@@ -288,6 +324,10 @@ P(D\geq5)
 $$
 
 The calculation assumes independent scores and the stated normal models. If the two scores are paired or otherwise dependent, the covariance must be included.
+
+![Left: the normal score distributions of universities A and B. Right: the distribution of the difference D equal to A minus B, centred at 10 with standard deviation 10.82, with the area for D at least 5 shaded.](docs/images/04_difference.png)
+
+*The difference is wider than either score distribution because the variances add; the shaded area is $P(D\geq5)\approx0.678$.*
 
 ## 4.7 Worked example: a weekend's tips
 
