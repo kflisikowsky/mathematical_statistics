@@ -17,7 +17,7 @@ Use the controls to:
 The theoretical sum probabilities are proportional to $1,2,3,4,5,6,5,4,3,2,1$ for sums 2 through 12. Thus 7 is the most likely sum: six of the 36 equally likely ordered dice pairs add to 7. For one fair die, $\mu=3.5$ and $\sigma^2=35/12$, so the standard error of the mean of $n$ dice is $\sqrt{35/(12n)}$.
 
 <iframe
-  src="docs/dice_sampling.html"
+  src="https://kflisikowsky.github.io/mathematical_statistics/dice_sampling.html"
   title="Interactive dice-sampling demonstration"
   width="100%"
   height="1660"
@@ -25,4 +25,4 @@ The theoretical sum probabilities are proportional to $1,2,3,4,5,6,5,4,3,2,1$ fo
   style="border: 0; border-radius: 1rem;"
 ></iframe>
 
-If the embedded view does not load, [open the dice-sampling app directly](docs/dice_sampling.html).
+If the embedded view does not load, [open the dice-sampling app directly](https://kflisikowsky.github.io/mathematical_statistics/dice_sampling.html).
