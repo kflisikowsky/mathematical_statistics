@@ -36,7 +36,7 @@ The opening chapters are designed to build a foundation for the rest of the book
 
 2. [Can we trust this study?](02_statistical_thinking.md): sample evidence, sampling variability, bias and defensible conclusions, connecting the first workbook, lab and seminar.
 
-3. [Probability distributions](03_probability_distributions.md): empirical and theoretical distributions, discrete and continuous models, and model checking.
+3. [Probability distributions](03_probability_distributions.md): empirical and theoretical distributions, discrete and continuous models, model checking, and applied probability calculations.
 
 Planned topics for the following chapters:
 

@@ -17,6 +17,8 @@ project:
         - file: 01_3_sampling_and_experiments.md
     - file: 02_statistical_thinking.md
     - file: 03_probability_distributions.md
+      children:
+        - file: 03_1_applied_probability.md
 
 site:
   template: book-theme
