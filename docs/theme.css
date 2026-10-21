@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
 
 :root {
   --myst-header-background: #f8fafc;
@@ -37,9 +37,24 @@ header {
   backdrop-filter: blur(10px);
 }
 
+.myst-home-link::after {
+  content: "Mathematical Statistics";
+  color: currentColor;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: 1.25rem;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
 html.dark header {
   background: rgba(15, 23, 42, 0.9);
   border-bottom-color: #243049;
+}
+
+@media (max-width: 639px) {
+  .myst-home-link::after {
+    display: none;
+  }
 }
 
 article {
