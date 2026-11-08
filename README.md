@@ -40,7 +40,7 @@ The opening chapters are designed to build a foundation for the rest of the book
 
 4. [Sampling, the law of large numbers, and the central limit theorem](04_sampling_lln_clt.md): sampling distributions, the behaviour of averages and proportions, normal approximations, and the $t$, $\chi^2$, and $F$ distributions.
 
-5. [Point and interval estimation](05_estimation.md): estimator properties, confidence intervals for means and proportions, comparing means, and practical estimation with Python.
+5. [Point and interval estimation](05_estimation.ipynb): estimator properties, confidence intervals for means and proportions, comparing means, and practical estimation with Python.
 
 Planned topic for a following chapter:
 
