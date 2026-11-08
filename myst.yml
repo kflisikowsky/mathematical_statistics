@@ -22,6 +22,7 @@ project:
     - file: 04_sampling_lln_clt.md
       children:
         - file: 04_1_dice_sampling.md
+    - file: 05_estimation.md
 
 site:
   template: book-theme
